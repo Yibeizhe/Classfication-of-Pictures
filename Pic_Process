@@ -1,0 +1,24 @@
+from PIL import Image
+from matplotlib.pyplot import imshow
+import numpy as np
+import matplotlib.pyplot as plt
+% matplotlib inline
+class adr_pic:
+    def __init__(self,file_name):
+        self.file_name=file_name
+        self.original_pic=Image.open(self.file_name)
+        self.pic_array=np.asarray(self.original_pic)
+        pass
+    def show_pic(self):
+        print('The shape of the original Piture is',self.pic_array.shape)
+        print('The following the original Picture')
+        imshow(np.asarray(self.pic_array))
+        pass
+    def resize_pic(self):
+        self.mod_pic=self.original_pic.resize((256,256))
+        self.mod_pic_array=np.asarray(self.mod_pic)
+        imshow(np.asarray(self.mod_pic_array))
+filename=r'E:\Jupyter\MachineLearning\15Classification\15 ClassPicture\training\bedroom\0.jpg'
+pic=adr_pic(filename)
+pic.show_pic()
+pic.resize_pic()
